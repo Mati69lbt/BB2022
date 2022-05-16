@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.foto {
+  width: 40%;
+  background: white;
+}
+
+.paginado {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding-inline-start: 0px;
+}
+.number {
+  margin: 1%;
+
+}
