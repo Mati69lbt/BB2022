@@ -12,7 +12,7 @@ const getApiInfo = async () => {
       name: el.name,
       id: el.char_id,
       birthday: el.birthday,
-      image: el.img,
+      img: el.img,
       status: el.status,
       nickname: el.nickname,
       portrayed: el.portrayed,

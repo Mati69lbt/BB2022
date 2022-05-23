@@ -1,12 +1,12 @@
 const axios = require("axios");
 const { Router } = require("express");
-const getAllCharacters = require("../controllers/getCharacters");
+const fullCharacter = require("../controllers/fullCharacter");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   const name = req.query.name;
-  let charactersTotal = await getAllCharacters();
+  let charactersTotal = await fullCharacter();
   try {
     if (name) {
       let characterName = await charactersTotal.filter((el) =>

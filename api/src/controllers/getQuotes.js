@@ -1,11 +1,10 @@
 const axios = require("axios");
 
 const getApiQuotes = async () => {
-  const apiurl = await axios.get("https://breakingbadapi.com/api/quotes");
-  const apiQuotes = await apiurl.data.map((el) => {
+  const apiQuotesUrl = await axios.get("https://breakingbadapi.com/api/quotes");
+  const apiQuotesInfo = await apiQuotesUrl.data.map((el) => {
     return {
-      quote_id: el.quote_id,
-      quote: el.quote,
+      quotes: el.quote,
       name:
         el.author === "Gus Fring"
           ? "Gustavo Fring"
@@ -15,14 +14,14 @@ const getApiQuotes = async () => {
       series: el.series,
     };
   });
-  const QuotesFilter = apiQuotes.filter((e) => e.series === "Breaking Bad");
-  const quotes = QuotesFilter.map((el) => {
+
+  const apiQuotes = apiQuotesInfo.filter((e) => e.series === "Breaking Bad");
+  const quotes = apiQuotes.map((el) => {
     return {
-      quotes: el.name,
+      quotes: el.quotes,
       name: el.name,
     };
   });
-
   return quotes;
 };
 
