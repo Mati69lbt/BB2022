@@ -1,8 +1,11 @@
 const axios = require("axios");
 
 const { Ocupa, Character } = require("../db");
+const getApiQuotes = require("./getQuotes");
 
 const getApiInfo = async () => {
+  const AQ = await getApiQuotes();
+
   const apiurl = await axios.get("https://breakingbadapi.com/api/characters");
   const apiInfo = await apiurl.data.map((el) => {
     return {
@@ -16,6 +19,7 @@ const getApiInfo = async () => {
       trabajo: el.occupation.map((el) => el),
     };
   });
+
   return apiInfo;
 };
 

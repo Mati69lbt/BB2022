@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
   const occupations = occupationsApi.data.map((el) => el.occupation);
   const occEach = occupations.map((el) => {
     for (let i = 0; i < el.length; i++) return el[i];
-    // console.log(occEach);
   });
 
   occEach.forEach((el) => {

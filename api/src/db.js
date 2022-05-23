@@ -42,9 +42,7 @@ Character.belongsToMany(Ocupa, { through: "character_occuption" });
 Ocupa.belongsToMany(Character, { through: "character_occuption" });
 
 Character.belongsToMany(Quotes, { through: "character_quote" });
-Quotes.hasOne(Character, { through: "character_quote" });
-
-Character.hasOne(Deaths);
+Quotes.belongsToMany(Character, { through: "character_quote" });
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
