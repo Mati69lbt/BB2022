@@ -38,6 +38,7 @@ const getdbInfo = async () => {
 const getAllCharacters = async () => {
   const apiInfo = await getApiInfo();
   const dbInfo = await getdbInfo();
+  console.log(dbInfo);
   const infoTotal = dbInfo.concat(apiInfo);
   return infoTotal;
 };

@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.numfila {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin-top: -1%;
+}
+.tarjeta {
+  margin-right: 5%;
+  margin-bottom: -4%;
+}
+
+.todas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

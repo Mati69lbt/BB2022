@@ -14,7 +14,6 @@ const fullCharacter = async () => {
     apiDeathResponsible
   );
 
-  // console.log("full:", fullCharacters); si esta el portrayed
   const newObj = {};
 
   fullCharacters.forEach(
@@ -26,6 +25,7 @@ const fullCharacter = async () => {
       portrayed,
       status,
       trabajo,
+      createdInDb,
       birthday,
       ...rest
     }) => {
@@ -37,6 +37,7 @@ const fullCharacter = async () => {
         portrayed,
         birthday,
         trabajo,
+        createdInDb,
         quotes: [],
         deaths_caused: [],
         status,
@@ -51,7 +52,7 @@ const fullCharacter = async () => {
       newObj[name].deaths_caused.push(rest.deaths_caused);
     }
   );
-  // console.log("full:", fullCharacters); si esta el portrayed
+
   const data = Object.values(newObj);
 
   const finalData = data.filter((e) => e.status);
@@ -62,6 +63,7 @@ const fullCharacter = async () => {
       name: el.name,
       nickname: el.nickname,
       img: el.img,
+      createdInDb: el.createdInDb,
       portrayed: el.portrayed,
       birthday: el.birthday,
       trabajo: el.trabajo,
