@@ -12,7 +12,6 @@ export function getCharacters() {
 export function getOccupation() {
   return async function (dispatch) {
     var json = await axios.get("http://localhost:3001/occupations");
-    console.log(json);
     return dispatch({
       type: "GET_OCCUPATIONS",
       payload: json.data,

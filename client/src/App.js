@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/home";
 import CharacterCreate from "./components/CharacterCreate";
 import LandingPage from "./components/landingPage.js";
+import Detail from "./components/Detail";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/home" component={Home} />
           <Route path="/character" component={CharacterCreate} />
+          <Route path="/details/:id" component={Detail} />
         </div>
       </Switch>
     </BrowserRouter>
