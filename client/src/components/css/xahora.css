@@ -11,15 +11,56 @@
   list-style-type: none;
   margin-top: -1%;
 }
-.tarjeta {
-  margin: 10vh;
-  margin-bottom: -10vh;
-  margin-top: -1vh;
-}
-
 .todas {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.tarjeta {
+  margin: 6vh;
+  margin-top: -1vh;
+  margin-bottom: 2vh;
+}
+.carta {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.carta img {
+  border-radius: 10%;
+}
+.texto {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.css-button-rounded--blue {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #2c0b8e;
+  background: #2c0b8e;
+}
+.css-button-rounded--blue:hover {
+  background: #fff;
+  color: #2c0b8e;
+}
+
+.fondo {
+  min-height: 96vh;
+  background-image: url("../css/fondoLanding.jpg");
+  background-position-x: center;
+  background-position-y: center;
 }

@@ -14,7 +14,12 @@ const Paginado = ({ charactersPerPage, allcharacters, paginado }) => {
             return (
               <div>
                 <li className="number" key={number}>
-                  <button onClick={() => paginado(number)}>{number}</button>
+                  <button
+                    className="css-button-rounded--blue"
+                    onClick={() => paginado(number)}
+                  >
+                    {number}
+                  </button>
                 </li>
               </div>
             );
