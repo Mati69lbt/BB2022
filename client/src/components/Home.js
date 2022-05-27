@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCharacters } from "../action";
@@ -6,9 +6,11 @@ import Card from "./Card";
 import Navbar from "./Navbar";
 import Paginado from "./paginado";
 import "./css/xahora.css";
+import Loading from "./Loading";
 
 export default function Home() {
   const dispatch = useDispatch();
+
   const allcharacters = useSelector((state) => state.characters);
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,21 +47,26 @@ export default function Home() {
         paginado={paginado}
       />
       <div className="todas">
-        {currrentCharacters?.map((el) => {
-          return (
-            <div className="tarjeta">
-              <Link to={"/details/" + el.id}>
-                <Card
-                  name={el.name}
-                  img={el.img}
-                  nickname={el.nickname}
-                  key={el.id}
-                />
-              </Link>
-            </div>
-          );
-        })}
+        {!allcharacters ? (
+          <Loading />
+        ) : (
+          currrentCharacters?.map((el) => {
+            return (
+              <div className="tarjeta">
+                <Link to={"/details/" + el.id}>
+                  <Card
+                    name={el.name}
+                    img={el.img}
+                    nickname={el.nickname}
+                    key={el.id}
+                  />
+                </Link>
+              </div>
+            );
+          })
+        )}
       </div>
+      <Loading />
     </div>
   );
 }

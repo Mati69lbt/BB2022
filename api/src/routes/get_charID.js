@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const getAllCharacters = require("../controllers/getCharacters");
+const fullCharacter = require("../controllers/fullCharacter");
 const router = Router();
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const charactersTotal = await getAllCharacters();
+  const charactersTotal = await fullCharacter();
   if (id) {
     let characterId = await charactersTotal.filter((el) => el.id == id);
     try {
