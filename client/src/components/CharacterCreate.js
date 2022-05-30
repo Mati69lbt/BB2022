@@ -92,7 +92,7 @@ const CharacterCreate = () => {
   return (
     <div>
       <Link to="/home">
-        <button>Volver</button>
+        <button>Back</button>
       </Link>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>

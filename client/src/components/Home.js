@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCharacters } from "../action";
@@ -34,6 +34,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(getCharacters());
   }
+
   return (
     <div>
       <Navbar
@@ -47,7 +48,7 @@ export default function Home() {
         paginado={paginado}
       />
       <div className="todas">
-        {!allcharacters ? (
+        {!allcharacters.length ? (
           <Loading />
         ) : (
           currrentCharacters?.map((el) => {
@@ -66,7 +67,6 @@ export default function Home() {
           })
         )}
       </div>
-      <Loading />
     </div>
   );
 }

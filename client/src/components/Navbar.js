@@ -22,25 +22,25 @@ const Navbar = ({ handleClick, setCurrentPage, setOrder }) => {
   }
   return (
     <div className="navbar">
-      <Link to="/character"> Crear Personaje</Link>
+      <Link to="/character"> Create Character</Link>
 
-      <h1>¿Quién no vio esta Serie?</h1>
+      <h1>Who has not seen this series?</h1>
       <div>
         <select onChange={(e) => handleSort(e)}>
           <option value="asc">A-Z</option>
           <option value="des">Z-A</option>
         </select>
         <select onChange={(e) => handleFilterStatus(e)}>
-          <option value="All">Todos</option>
-          <option value="Alive">Vivo</option>
-          <option value="Deceased">Muerto</option>
-          <option value="Unknown">Desconocido</option>
-          <option value="Presumed dead">Murió?</option>
+          <option value="All">All</option>
+          <option value="Alive">Alive</option>
+          <option value="Deceased">Deceased</option>
+          <option value="Unknown">Unknown</option>
+          <option value="Presumed dead">He died?</option>
         </select>
         <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="All">Todos</option>
-          <option value="Created">Creados</option>
-          <option value="api">Existente</option>
+          <option value="All">All</option>
+          <option value="Created">Created</option>
+          <option value="api">Existing</option>
         </select>
       </div>
       <SearchBar />

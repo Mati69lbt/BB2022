@@ -15,12 +15,17 @@ const ale = (datos) => {
 };
 
 const z = ale(p1);
-console.log(z);
 
 const Loading = () => {
   return (
     <div className="load">
-      <img src={z} alt="mostramela!" />
+      <img
+        src={z}
+        alt="mostramela!"
+        width="500vh"
+        height="300vh"
+        className="iii"
+      />
     </div>
   );
 };

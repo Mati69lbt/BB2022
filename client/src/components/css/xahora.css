@@ -64,3 +64,22 @@
   background-position-x: center;
   background-position-y: center;
 }
+.all {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.col2 li {
+  list-style-type: none;
+}
+.col1 {
+  width: 40%;
+}
+.col2 {
+  text-align: left;
+}
+.iii {
+  background-position-x: center;
+  background-position-y: center;
+}
