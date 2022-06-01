@@ -5,7 +5,7 @@ import { getCharacters } from "../action";
 import Card from "./Card";
 import Navbar from "./Navbar";
 import Paginado from "./paginado";
-import "./css/xahora.css";
+import "./css/home.css";
 import Loading from "./Loading";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="contenedor">
       <Navbar
         handleClick={handleClick}
         setCurrentPage={setCurrentPage}

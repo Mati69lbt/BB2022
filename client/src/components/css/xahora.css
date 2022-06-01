@@ -11,32 +11,6 @@
   list-style-type: none;
   margin-top: -1%;
 }
-.todas {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.tarjeta {
-  margin: 6vh;
-  margin-top: -1vh;
-  margin-bottom: 2vh;
-}
-.carta {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-}
-.carta img {
-  border-radius: 10%;
-}
-.texto {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
 
 .css-button-rounded--blue {
   min-width: 130px;
@@ -78,8 +52,4 @@
 }
 .col2 {
   text-align: left;
-}
-.iii {
-  background-position-x: center;
-  background-position-y: center;
 }

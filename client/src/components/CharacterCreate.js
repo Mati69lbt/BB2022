@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { getOccupation, postCharacters } from "../action";
+import "./css/formulario.css";
 
 function validate(input) {
   let errors = {};
@@ -90,117 +91,183 @@ const CharacterCreate = () => {
   }
 
   return (
-    <div>
+    <body>
       <Link to="/home">
         <button>Back</button>
       </Link>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Nombre: </label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.name && <p>{errors.name}</p>}
-        </div>
-        <div>
-          <label>NickName: </label>
-          <input
-            type="text"
-            value={input.nickname}
-            name="nickname"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.nickname && <p>{errors.nickname}</p>}
-        </div>
-        <div>
-          <label>Cumpleaños: </label>
-          <input
-            type="text"
-            value={input.birthday}
-            name="birthday"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.birthday && <p>{errors.birthday}</p>}
-        </div>
-        <div>
-          <label>Interpretado Por: </label>
-          <input
-            type="text"
-            value={input.portrayed}
-            name="portrayed"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.portrayed && <p>{errors.portrayed}</p>}
-        </div>
-        <div>
-          <label>Foto: </label>
-          <input
-            type="text"
-            value={input.img}
-            name="img"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.img && <p>{errors.img}</p>}
-        </div>
-        <div>
-          <label>Status: </label>
-          <label>
+        <div className="form_container">
+          <div className="form_group">
             <input
-              type="checkbox"
-              value="Alive"
-              name="Alive"
-              onChange={(e) => handleCheck(e)}
+              id="name"
+              className="form_input"
+              type="text"
+              value={input.name}
+              name="name"
+              placeholder=" "
+              onChange={(e) => handleChange(e)}
             />
-            Alive
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="Deceased"
-              name="Deceased"
-              onChange={(e) => handleCheck(e)}
-            />
-            Deceased
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="Unknown"
-              name="Unknown"
-              onChange={(e) => handleCheck(e)}
-            />
-            Unknown
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="Presumed Dead"
-              name="Presumed Dead"
-              onChange={(e) => handleCheck(e)}
-            />
-            Presumed Dead
-          </label>
+            <label className="form_label" for="name">
+              Name{" "}
+            </label>
+            <span className="form_line"></span>
+            {errors.name && <p>{errors.name}</p>}
+          </div>
         </div>
-        <select onChange={(e) => handleSelect(e)}>
-          {allOccupations.map((occ) => (
-            <option value={occ.name}>{occ.name}</option>
-          ))}
-        </select>
+
+        <div className="form_container">
+          <div className="form_group">
+            <input
+              id="nickname"
+              className="form_input"
+              type="text"
+              value={input.nickname}
+              name="Nickname"
+              placeholder=" "
+              onChange={(e) => handleChange(e)}
+            />
+            <label className="form_label" for="nickname">
+              NickName{" "}
+            </label>
+            <span className="form_line"></span>
+            {errors.nickname && <p>{errors.nickname}</p>}
+          </div>
+        </div>
+
+        <div className="form_container">
+          <div className="form_group">
+            <input
+              id="birthdat"
+              className="form_input"
+              type="text"
+              value={input.birthday}
+              name="Birthday"
+              placeholder=" "
+              onChange={(e) => handleChange(e)}
+            />
+            <label className="form_label" for="birthday">
+              Birthday{" "}
+            </label>
+            <span className="form_line"></span>
+            {errors.birthday && <p>{errors.birthday}</p>}
+          </div>
+        </div>
+
+        <div className="form_container">
+          <div className="form_group">
+            <input
+              id="inter"
+              className="form_input"
+              type="text"
+              value={input.portrayed}
+              name="portrayed"
+              placeholder=" "
+              onChange={(e) => handleChange(e)}
+            />
+            <label className="form_label" for="inter">
+              Interpreted by{" "}
+            </label>
+            <span className="form_line"></span>
+            {errors.portrayed && <p>{errors.portrayed}</p>}
+          </div>
+        </div>
+
+        <div className="form_container">
+          <div className="form_group">
+            <input
+              id="img"
+              className="form_input"
+              type="text"
+              placeholder=" "
+              value={input.img}
+              name="img"
+              onChange={(e) => handleChange(e)}
+            />
+            <label className="form_label" for="img">
+              Picture{" "}
+            </label>
+            <span className="form_line"></span>
+            {errors.img && <p>{errors.img}</p>}
+          </div>
+        </div>
+
+        <div className="form_container">
+          <div className="form_group">
+            <label>
+              <input
+                id="sta"
+                className="form_input"
+                type="checkbox"
+                value="Alive"
+                name="Alive"
+                onChange={(e) => handleCheck(e)}
+              />
+              Alive
+            </label>
+            <label className="form_label">
+              <input
+                id="sta"
+                className="form_input"
+                type="checkbox"
+                value="Deceased"
+                name="Deceased"
+                onChange={(e) => handleCheck(e)}
+              />
+              Deceased
+            </label>
+            <label className="form_label">
+              <input
+                id="sta"
+                className="form_input"
+                type="checkbox"
+                value="Unknown"
+                name="Unknown"
+                onChange={(e) => handleCheck(e)}
+              />
+              Unknown
+            </label>
+            <label className="form_label">
+              <input
+                id="sta"
+                className="form_input"
+                type="checkbox"
+                value="Presumed Dead"
+                name="Presumed Dead"
+                onChange={(e) => handleCheck(e)}
+              />
+              Presumed Dead
+            </label>
+            <label className="form_label" for="sta">
+              Status{" "}
+            </label>
+            <span className="form_line"></span>
+          </div>
+        </div>
+
+        <div className="form_container">
+          <div className="form_group">
+            <select onChange={(e) => handleSelect(e)}>
+              {allOccupations.map((occ) => (
+                <option value={occ.name}>{occ.name}</option>
+              ))}
+            </select>
+            <span className="form_line"></span>
+          </div>
+        </div>
         <ul>
           <li>{input.laburo.map((el) => el + " ,")}</li>
         </ul>
+
         <button type="submit">Create Character</button>
       </form>
+
       {input.laburo.map((el) => (
         <div>
           <p>{el}</p>
           <button onClick={() => handleDelete(el)}>X</button>
         </div>
       ))}
-    </div>
+    </body>
   );
 };
 

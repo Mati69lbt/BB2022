@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+form {
+  background-color: #ffff;
+  font-family: "Roboto", sans-serif;
+  margin: auto;
+  width: 90%;
+  max-width: 600vh;
+  padding: 4.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+  text-align: left;
+}
+.form_container {
+  margin-top: 3em;
+  display: grid;
+  gap: 2.5em;
+}
+
+.form_group {
+  position: relative;
+  color: #5757577e;
+}
+.form_input {
+  width: 100%;
+  background: none;
+  color: #706c6c;
+  font-size: 1rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #5757577e;
+  font-family: " Roboto ", sans-serif;
+}
+
+.form_input:focus + .form_label,
+.form_input:not(:placeholder-show) + .form_label {
+  transform: translate(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+
+.form_label {
+  color: #5757577e;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translate(10px);
+  transition: transform 0.5s, color 0.3s;
+}

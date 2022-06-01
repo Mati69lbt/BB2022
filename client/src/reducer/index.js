@@ -77,6 +77,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+    case "GET_DISMOUNT_DETAIL":
+      return {
+        ...state,
+        detail: [],
+      };
 
     default:
       return state;

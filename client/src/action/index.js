@@ -71,3 +71,8 @@ export function orderByName(payload) {
     payload,
   };
 }
+export function dismountDetail() {
+  return {
+    type: "GET_DISMOUNT_DETAIL",
+  };
+}

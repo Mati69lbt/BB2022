@@ -1,20 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getDetails } from "../action";
+import { dismountDetail, getDetails } from "../action";
 import "./css/xahora.css";
-import Loading from "./Loading";
+import Loading2 from "./Loading2";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const myCharacter = useSelector((state) => state.detail);
-  console.log(myCharacter);
-  const aux = [];
-  const first = () => {
-    myCharacter[0].quotes.map((el) => aux.push(el));
-  };
-  first();
-  console.log(aux);
   const { id } = props.match.params;
 
   const aleQ = (datos) => {
@@ -30,10 +23,11 @@ const Detail = (props) => {
   };
   useEffect(() => {
     dispatch(getDetails(id));
-  }, [dispatch]);
+    return () => {
+      dispatch(dismountDetail());
+    };
+  }, [id, dispatch]);
 
-  const quote = aleQ(aux);
-  console.log(quote);
   return (
     <div>
       {myCharacter.length > 0 ? (
@@ -96,13 +90,11 @@ const Detail = (props) => {
               {myCharacter[0].quotes.length > 0 ? (
                 <h3>
                   Listen to these little things of mine:
-                  <br />
-                  {quote}
-                  {/* {myCharacter[0].quotes.map((el) => (
+                  {myCharacter[0].quotes.map((el) => (
                     <li>
                       <h4>{el + ",  "}</h4>
                     </li>
-                  ))} */}
+                  ))}
                 </h3>
               ) : (
                 <h3>I did not say anything</h3>
@@ -111,7 +103,7 @@ const Detail = (props) => {
           </div>
         </div>
       ) : (
-        <Loading />
+        <Loading2 />
       )}
       <Link to="/home">
         <button>Back</button>

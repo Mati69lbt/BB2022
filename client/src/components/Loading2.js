@@ -16,7 +16,7 @@ const ale = (datos) => {
 
 const z = ale(p1);
 
-const Loading = () => {
+const Loading2 = () => {
   return (
     <div className="load">
       <img
@@ -30,4 +30,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Loading2;

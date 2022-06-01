@@ -1,0 +1,32 @@
+.contenedor {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.todas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.tarjeta {
+  margin: 8vh;
+  margin-top: -1vh;
+  margin-bottom: 2vh;
+}
+.carta {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.carta img {
+  border-radius: 10%;
+}
+.texto {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
