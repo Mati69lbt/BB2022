@@ -1,13 +1,35 @@
 const axios = require("axios");
 
 const { Router } = require("express");
+const fullCharacter = require("../controllers/fullCharacter");
 
-const getAllCharacters = require("../controllers/getCharacters");
-const { Ocupa, Character } = require("../db");
+const { Occupation, Character } = require("../db");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
+  // let occDB = await Occupation.findAll();
+  // if (occDB.length === 0) {
+  //   const characterTotal = await fullCharacter();
+  //   const aux = characterTotal.map((el) => el.occupations);
+  //   let occAPi = [];
+  //   for (let i = 0; i < aux.length; i++) {
+  //     for (let j = 0; j < aux[i].length; j++) {
+  //       occAPi.push(aux[i][j]);
+  //     }
+  //   }
+  //   occAPi = occAPi.filter((el, i) => {
+  //     return occAPi.indexOf(el) === i;
+  //   });
+  //   occAPi.forEach((el) => {
+  //     Occupation.findOrCreate({
+  //       where: { name: el },
+  //     });
+  //   });
+  //   occAPi = await Occupation.findAll();
+  // }
+  // res.send(occAPi);
+
   const occupationsApi = await axios.get(
     "https://breakingbadapi.com/api/characters"
   );
@@ -18,12 +40,12 @@ router.get("/", async (req, res) => {
   });
 
   occEach.forEach((el) => {
-    Ocupa.findOrCreate({
+    Occupation.findOrCreate({
       where: { name: el },
     });
   });
 
-  const allOccupations = await Ocupa.findAll();
+  const allOccupations = await Occupation.findAll();
   res.send(allOccupations);
 });
 

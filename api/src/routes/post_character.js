@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { Router } = require("express");
-const { Ocupa, Character } = require("../db");
+const { Occupation, Character } = require("../db");
 
 const router = Router();
 
@@ -13,7 +13,8 @@ router.post("/", async (req, res) => {
     portrayed,
     status,
     createdInDb,
-    laburo,
+    occupations,
+    quotes,
   } = req.body;
 
   const createdCharacter = await Character.create({
@@ -24,16 +25,18 @@ router.post("/", async (req, res) => {
     portrayed,
     status,
     createdInDb,
+    quotes,
   });
 
-  const createdDb = await Ocupa.findAll({
+  let createdDb = await Occupation.findAll({
     where: {
-      name: laburo,
+      name: occupations,
     },
   });
+  console.log(createdDb);
   try {
-    createdCharacter.addOcupa(createdDb);
-    res.status(200).send("Personaje Creado con mucho Exito!");
+    createdCharacter.addOccupation(createdDb);
+    res.status(200).send(createdCharacter);
   } catch (error) {
     console.log(error);
   }

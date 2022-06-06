@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const { Ocupa, Character } = require("../db");
+const { Occupation, Character } = require("../db");
 const getApiQuotes = require("./getQuotes");
 
 const getApiInfo = async () => {
@@ -16,7 +16,7 @@ const getApiInfo = async () => {
       status: el.status,
       nickname: el.nickname,
       portrayed: el.portrayed,
-      trabajo: el.occupation.map((el) => el),
+      occupations: el.occupation.map((el) => el),
     };
   });
 
@@ -26,7 +26,7 @@ const getApiInfo = async () => {
 const getdbInfo = async () => {
   return await Character.findAll({
     include: {
-      model: Ocupa,
+      model: Occupation,
       attributes: ["name"],
       through: {
         attributes: [],

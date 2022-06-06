@@ -24,7 +24,7 @@ const fullCharacter = async () => {
       img,
       portrayed,
       status,
-      trabajo,
+      occupations,
       createdInDb,
       birthday,
       ...rest
@@ -36,7 +36,7 @@ const fullCharacter = async () => {
         img,
         portrayed,
         birthday,
-        trabajo,
+        occupations,
         createdInDb,
         quotes: [],
         deaths_caused: [],
@@ -45,6 +45,7 @@ const fullCharacter = async () => {
         responsible: [],
         last_words: [],
       };
+
       newObj[name].quotes.push(rest.quotes);
       newObj[name].cause.push(rest.cause);
       newObj[name].responsible.push(rest.responsible);
@@ -52,11 +53,11 @@ const fullCharacter = async () => {
       newObj[name].deaths_caused.push(rest.deaths_caused);
     }
   );
-
+  //console.log("fullcharacters:", fullCharacters);
   const data = Object.values(newObj);
-
+  // console.log("data:", data);
   const finalData = data.filter((e) => e.status);
-
+  //console.log("finaldata", finalData);
   const allfullCharacters = finalData.map((el) => {
     return {
       id: el.id,
@@ -66,7 +67,7 @@ const fullCharacter = async () => {
       createdInDb: el.createdInDb,
       portrayed: el.portrayed,
       birthday: el.birthday,
-      trabajo: el.trabajo,
+      occupations: el.occupations,
       quotes: el.quotes.map((el) => el).filter(Boolean),
       deaths_caused: el.deaths_caused.map((el) => el).filter(Boolean),
       status: el.status,
@@ -84,6 +85,7 @@ const fullCharacter = async () => {
         .toString(),
     };
   });
+  //console.log(allfullCharacters);
   return allfullCharacters;
 };
 

@@ -8,6 +8,7 @@ import Loading2 from "./Loading2";
 const Detail = (props) => {
   const dispatch = useDispatch();
   const myCharacter = useSelector((state) => state.detail);
+  console.log(myCharacter);
   const { id } = props.match.params;
 
   const aleQ = (datos) => {
@@ -53,8 +54,8 @@ const Detail = (props) => {
             <h3>
               I perform as:{" "}
               {!myCharacter[0].createdInDb
-                ? myCharacter[0].trabajo + "  "
-                : myCharacter[0].ocupas.map((el) => `${el.name}-`)}
+                ? myCharacter[0].occupations + "  "
+                : myCharacter[0].occupations.map((el) => `${el.name}-`)}
             </h3>
 
             {myCharacter[0].responsible ? (

@@ -12,6 +12,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const allcharacters = useSelector((state) => state.characters);
+  console.log(allcharacters);
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [charactersPerPage, , setCharactersPerPage] = useState(8);

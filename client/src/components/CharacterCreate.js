@@ -33,7 +33,8 @@ const CharacterCreate = () => {
     img: "",
     portrayed: "",
     status: "",
-    laburo: [],
+    quotes: "",
+    occupations: [],
   });
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const CharacterCreate = () => {
   function handleSelect(e) {
     setInput({
       ...input,
-      laburo: [...input.laburo, e.target.value],
+      occupations: [...input.occupations, e.target.value],
     });
   }
   function handleSubmit(e) {
@@ -78,33 +79,35 @@ const CharacterCreate = () => {
       birthday: "",
       img: "",
       status: "",
+      quotes: "",
       portrayed: "",
-      laburo: [],
+      occupations: [],
     });
     history.push("/home");
   }
   function handleDelete(el) {
     setInput({
       ...input,
-      laburo: input.laburo.filter((occ) => occ !== el),
+      occupations: input.occupations.filter((occ) => occ !== el),
     });
   }
 
   return (
-    <body>
+    <body className="body">
       <Link to="/home">
         <button>Back</button>
       </Link>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)} className="form">
         <div className="form_container">
           <div className="form_group">
             <input
+              type="text"
               id="name"
               className="form_input"
-              type="text"
               value={input.name}
-              name="name"
               placeholder=" "
+              name="name"
+              autoComplete="off"
               onChange={(e) => handleChange(e)}
             />
             <label className="form_label" for="name">
@@ -113,17 +116,16 @@ const CharacterCreate = () => {
             <span className="form_line"></span>
             {errors.name && <p>{errors.name}</p>}
           </div>
-        </div>
 
-        <div className="form_container">
           <div className="form_group">
             <input
+              type="text"
               id="nickname"
               className="form_input"
-              type="text"
               value={input.nickname}
-              name="Nickname"
               placeholder=" "
+              autoComplete="off"
+              name="nickname"
               onChange={(e) => handleChange(e)}
             />
             <label className="form_label" for="nickname">
@@ -132,17 +134,16 @@ const CharacterCreate = () => {
             <span className="form_line"></span>
             {errors.nickname && <p>{errors.nickname}</p>}
           </div>
-        </div>
 
-        <div className="form_container">
           <div className="form_group">
             <input
-              id="birthdat"
-              className="form_input"
               type="text"
-              value={input.birthday}
-              name="Birthday"
+              id="birthday"
+              className="form_input"
               placeholder=" "
+              value={input.birthday}
+              name="birthday"
+              autoComplete="off"
               onChange={(e) => handleChange(e)}
             />
             <label className="form_label" for="birthday">
@@ -151,17 +152,16 @@ const CharacterCreate = () => {
             <span className="form_line"></span>
             {errors.birthday && <p>{errors.birthday}</p>}
           </div>
-        </div>
 
-        <div className="form_container">
           <div className="form_group">
             <input
+              type="text"
               id="inter"
               className="form_input"
-              type="text"
-              value={input.portrayed}
-              name="portrayed"
               placeholder=" "
+              value={input.portrayed}
+              autoComplete="off"
+              name="portrayed"
               onChange={(e) => handleChange(e)}
             />
             <label className="form_label" for="inter">
@@ -170,16 +170,32 @@ const CharacterCreate = () => {
             <span className="form_line"></span>
             {errors.portrayed && <p>{errors.portrayed}</p>}
           </div>
-        </div>
 
-        <div className="form_container">
           <div className="form_group">
             <input
+              type="text"
+              id="quotes"
+              className="form_input"
+              placeholder=" "
+              value={input.quotes}
+              autoComplete="off"
+              name="quotes"
+              onChange={(e) => handleChange(e)}
+            />
+            <label className="form_label" for="inter">
+              Quotes{" "}
+            </label>
+            <span className="form_line"></span>
+          </div>
+
+          <div className="form_group">
+            <input
+              type="text"
               id="img"
               className="form_input"
-              type="text"
               placeholder=" "
               value={input.img}
+              autoComplete="off"
               name="img"
               onChange={(e) => handleChange(e)}
             />
@@ -190,13 +206,11 @@ const CharacterCreate = () => {
             {errors.img && <p>{errors.img}</p>}
           </div>
         </div>
-
-        <div className="form_container">
-          <div className="form_group">
+        <div className="status">
+          <div>
             <label>
               <input
                 id="sta"
-                className="form_input"
                 type="checkbox"
                 value="Alive"
                 name="Alive"
@@ -204,10 +218,10 @@ const CharacterCreate = () => {
               />
               Alive
             </label>
-            <label className="form_label">
+            <br />
+            <label>
               <input
                 id="sta"
-                className="form_input"
                 type="checkbox"
                 value="Deceased"
                 name="Deceased"
@@ -215,10 +229,10 @@ const CharacterCreate = () => {
               />
               Deceased
             </label>
-            <label className="form_label">
+            <br />
+            <label>
               <input
                 id="sta"
-                className="form_input"
                 type="checkbox"
                 value="Unknown"
                 name="Unknown"
@@ -226,10 +240,10 @@ const CharacterCreate = () => {
               />
               Unknown
             </label>
-            <label className="form_label">
+            <br />
+            <label>
               <input
                 id="sta"
-                className="form_input"
                 type="checkbox"
                 value="Presumed Dead"
                 name="Presumed Dead"
@@ -237,31 +251,29 @@ const CharacterCreate = () => {
               />
               Presumed Dead
             </label>
-            <label className="form_label" for="sta">
-              Status{" "}
-            </label>
-            <span className="form_line"></span>
+
+            <label for="sta">Status </label>
           </div>
         </div>
 
-        <div className="form_container">
-          <div className="form_group">
-            <select onChange={(e) => handleSelect(e)}>
-              {allOccupations.map((occ) => (
-                <option value={occ.name}>{occ.name}</option>
-              ))}
-            </select>
-            <span className="form_line"></span>
-          </div>
+        <div className="form_group">
+          <select onChange={(e) => handleSelect(e)}>
+            {allOccupations.map((occ) => (
+              <option value={occ.name}>{occ.name}</option>
+            ))}
+          </select>
+          <span className="form_line"></span>
         </div>
         <ul>
-          <li>{input.laburo.map((el) => el + " ,")}</li>
+          <li>{input.occupations.map((el) => el + " ,")}</li>
         </ul>
 
-        <button type="submit">Create Character</button>
+        <button type="submit" className="submit">
+          Create Character
+        </button>
       </form>
 
-      {input.laburo.map((el) => (
+      {input.occupations.map((el) => (
         <div>
           <p>{el}</p>
           <button onClick={() => handleDelete(el)}>X</button>
