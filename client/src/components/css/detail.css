@@ -1,0 +1,6 @@
+.contenedor {
+  background-image: url("../css/madera.jpg");
+  min-height: 100vh;
+  background-position-x: center;
+  background-position-y: center;
+}

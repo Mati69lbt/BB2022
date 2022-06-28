@@ -3,6 +3,10 @@
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  background-image: url("../css/madera.jpg");
+  min-height: 100vh;
+  background-position-x: center;
+  background-position-y: center;
 }
 .todas {
   display: flex;

@@ -8,8 +8,10 @@ import Loading2 from "./Loading2";
 const Detail = (props) => {
   const dispatch = useDispatch();
   const myCharacter = useSelector((state) => state.detail);
-  console.log(myCharacter);
   const { id } = props.match.params;
+
+  var aleatorio = Math.floor(Math.random() * 57);
+  console.log(aleatorio);
 
   const aleQ = (datos) => {
     if (!Array.isArray(datos)) {
@@ -106,8 +108,21 @@ const Detail = (props) => {
       ) : (
         <Loading2 />
       )}
+      {parseInt(id) === 1 ? null : (
+        <Link to={"/details/" + (parseInt(id) - 1)}>
+          <button>Prev</button>
+        </Link>
+      )}
       <Link to="/home">
         <button>Back</button>
+      </Link>
+      {parseInt(id) === 116 ? null : (
+        <Link to={"/details/" + (parseInt(id) + 1)}>
+          <button>Next</button>
+        </Link>
+      )}
+      <Link to={"/details/" + aleatorio}>
+        <button>Ramdom</button>
       </Link>
     </div>
   );

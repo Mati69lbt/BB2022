@@ -18,7 +18,7 @@ const SearchBar = () => {
         name: "",
       });
     } else {
-      alert("Ingresar Personaje");
+      alert("Enter Character");
     }
   }
 
@@ -26,11 +26,11 @@ const SearchBar = () => {
     <div>
       <input
         type="text"
-        placeholder="Buscar..."
+        placeholder="Character..."
         onChange={(e) => handleInputChange(e)}
       />
       <button type="submit" onClick={(e) => handleSumit(e)}>
-        Buscar
+        Search
       </button>
     </div>
   );
