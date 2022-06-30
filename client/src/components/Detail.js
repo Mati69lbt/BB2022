@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { dismountDetail, getDetails } from "../action";
-import "./css/xahora.css";
+import "./css/detail.css";
 import Loading2 from "./Loading2";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const myCharacter = useSelector((state) => state.detail);
   const { id } = props.match.params;
+  const [quote, setQuote] = useState("");
+  const [death, setDeath] = useState("");
+  console.log(quote);
+  console.log(death);
 
   var aleatorio = Math.floor(Math.random() * 57);
-  console.log(aleatorio);
+
+  var a = [];
+  if (myCharacter.length > 0) {
+    myCharacter[0].quotes.map((el) => a.push(el));
+  }
 
   const aleQ = (datos) => {
     if (!Array.isArray(datos)) {
@@ -24,6 +32,34 @@ const Detail = (props) => {
     console.log(datos[indicador]);
     return datos[indicador];
   };
+
+  var b = aleQ(a);
+
+  function handleChange() {
+    setQuote(aleQ(a));
+  }
+
+  var z = [];
+  if (myCharacter.length > 0) {
+    myCharacter[0].deaths_caused.map((el) => z.push(el));
+  }
+  const aleD = (datos) => {
+    if (!Array.isArray(datos)) {
+      throw TypeError("debe ser arreglo");
+    }
+    if (!datos.length) {
+      return null;
+    }
+    let indicador = Math.floor(Math.random() * datos.length);
+    console.log(datos[indicador]);
+    return datos[indicador];
+  };
+  var x = aleD(z);
+
+  function handleChangeDeath() {
+    setDeath(aleD(z));
+  }
+
   useEffect(() => {
     dispatch(getDetails(id));
     return () => {
@@ -32,98 +68,107 @@ const Detail = (props) => {
   }, [id, dispatch]);
 
   return (
-    <div>
+    <div className="cont">
       {myCharacter.length > 0 ? (
         <div className="all">
           <div className="col1">
+            <div className="but">
+              {parseInt(id) === 1 ? null : (
+                <Link to={"/details/" + (parseInt(id) - 1)}>
+                  <button>Prev</button>
+                </Link>
+              )}
+              <Link to="/home">
+                <button>Back</button>
+              </Link>
+              {parseInt(id) === 116 ? null : (
+                <Link to={"/details/" + (parseInt(id) + 1)}>
+                  <button>Next</button>
+                </Link>
+              )}
+              <Link to={"/details/" + aleatorio}>
+                <button>Ramdom</button>
+              </Link>
+            </div>
             <h1>Hello! I am {myCharacter[0].name}!!!</h1>
             <img
               src={myCharacter[0].img}
               alt="y eia?"
-              width="300vh"
-              height="400vh"
+              width="250vh"
+              height="350vh"
             />
-            <h3>
-              They call me {myCharacter[0].nickname}, I was born on{" "}
+            <h2>
+              They call me {myCharacter[0].nickname},<br></br>i was born on{" "}
               {myCharacter[0].birthday !== "Unknown"
                 ? myCharacter[0].birthday
                 : "...You know I don't know..."}{" "}
-              and I think I'm {myCharacter[0].status}
-            </h3>
+              and i think i'm {myCharacter[0].status}
+            </h2>
           </div>
           <div className="col2">
-            <h3>I'm actually: {myCharacter[0].portrayed}</h3>
-            <h3>
+            <h2>I'm actually: {myCharacter[0].portrayed}</h2>
+            <h2>
               I perform as:{" "}
               {!myCharacter[0].createdInDb
                 ? myCharacter[0].occupations + "  "
                 : myCharacter[0].occupations.map((el) => `${el.name}-`)}
-            </h3>
+            </h2>
 
             {myCharacter[0].responsible ? (
-              <h3>
+              <h2>
                 I hope you rot in hell {myCharacter[0].responsible}, you killed
                 me...
-              </h3>
+              </h2>
             ) : (
-              <h3>Knock on wood, I'm still alive</h3>
+              <h2>Knock on wood, I'm still alive</h2>
             )}
 
             {myCharacter[0].last_words ? (
-              <h3>{myCharacter[0].last_words}</h3>
+              <h2>{myCharacter[0].last_words}</h2>
             ) : (
-              <h3>I hope someone remembers my last words</h3>
+              <h2>I hope someone remembers my last words</h2>
             )}
 
-            <ul>
-              {myCharacter[0].deaths_caused.length > 0 ? (
-                <h3>
+            {myCharacter[0].deaths_caused.length > 0 ? (
+              <div>
+                <h2>
                   Go see if they breathe... I turned them off:
-                  {myCharacter[0].deaths_caused.map((el) => (
+                  {/* {myCharacter[0].deaths_caused.map((el) => (
                     <li>
                       <h4>{el + ",  "}</h4>
                     </li>
-                  ))}
-                </h3>
-              ) : (
-                <h3>I don't have any dead in the closet</h3>
-              )}
-            </ul>
-            <ul>
-              {myCharacter[0].quotes.length > 0 ? (
-                <h3>
+                  ))} */}
+                </h2>
+                <h4>{death}</h4>
+                <button onClick={() => handleChangeDeath()}>
+                  Another one?
+                </button>
+              </div>
+            ) : (
+              <h2>I don't have any dead in the closet</h2>
+            )}
+
+            {myCharacter[0].quotes.length > 0 ? (
+              <div>
+                <h2>
                   Listen to these little things of mine:
-                  {myCharacter[0].quotes.map((el) => (
+                  {/* {myCharacter[0].quotes.map((el) => (
                     <li>
                       <h4>{el + ",  "}</h4>
                     </li>
-                  ))}
-                </h3>
-              ) : (
-                <h3>I did not say anything</h3>
-              )}
-            </ul>
+                  ))} */}
+                </h2>
+                <h3>{quote}</h3>
+                <button onClick={() => handleChange()}>New Quote</button>
+              </div>
+            ) : (
+              <h2>I did not say anything</h2>
+            )}
           </div>
         </div>
       ) : (
         <Loading2 />
       )}
-      {parseInt(id) === 1 ? null : (
-        <Link to={"/details/" + (parseInt(id) - 1)}>
-          <button>Prev</button>
-        </Link>
-      )}
-      <Link to="/home">
-        <button>Back</button>
-      </Link>
-      {parseInt(id) === 116 ? null : (
-        <Link to={"/details/" + (parseInt(id) + 1)}>
-          <button>Next</button>
-        </Link>
-      )}
-      <Link to={"/details/" + aleatorio}>
-        <button>Ramdom</button>
-      </Link>
     </div>
   );
 };

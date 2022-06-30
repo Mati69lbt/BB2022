@@ -5,7 +5,7 @@ import { getCharacters } from "../action";
 import Card from "./Card";
 import Navbar from "./Navbar";
 import Paginado from "./paginado";
-import "./css/detail.css";
+import "./css/home.css";
 import Loading from "./Loading";
 
 export default function Home() {
@@ -36,38 +36,36 @@ export default function Home() {
   }
 
   return (
-    <div className="cont">
-      <div className="contenedor">
-        <Navbar
-          handleClick={handleClick}
-          setCurrentPage={setCurrentPage}
-          setOrder={setOrder}
-        />
-        <Paginado
-          charactersPerPage={charactersPerPage}
-          allcharacters={allcharacters.length}
-          paginado={paginado}
-        />
-        <div className="todas">
-          {!allcharacters.length ? (
-            <Loading />
-          ) : (
-            currrentCharacters?.map((el) => {
-              return (
-                <div className="tarjeta">
-                  <Link to={"/details/" + el.id}>
-                    <Card
-                      name={el.name}
-                      img={el.img}
-                      nickname={el.nickname}
-                      key={el.id}
-                    />
-                  </Link>
-                </div>
-              );
-            })
-          )}
-        </div>
+    <div className="contenedor">
+      <Navbar
+        handleClick={handleClick}
+        setCurrentPage={setCurrentPage}
+        setOrder={setOrder}
+      />
+      <Paginado
+        charactersPerPage={charactersPerPage}
+        allcharacters={allcharacters.length}
+        paginado={paginado}
+      />
+      <div className="todas">
+        {!allcharacters.length ? (
+          <Loading />
+        ) : (
+          currrentCharacters?.map((el) => {
+            return (
+              <div className="tarjeta">
+                <Link to={"/details/" + el.id}>
+                  <Card
+                    name={el.name}
+                    img={el.img}
+                    nickname={el.nickname}
+                    key={el.id}
+                  />
+                </Link>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );

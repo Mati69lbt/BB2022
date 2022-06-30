@@ -1,6 +1,12 @@
-.contenedor {
-  background-image: url("../css/madera.jpg");
-  min-height: 100vh;
-  background-position-x: center;
-  background-position-y: center;
+.all {
+  column-count: 2;
+  column-gap: 10px;
+  padding-top: 5vh;
+}
+
+.col1 {
+}
+.col2 {
+  padding-top: 5vh;
+  text-align: left;
 }
