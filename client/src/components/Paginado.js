@@ -12,7 +12,7 @@ const Paginado = ({ charactersPerPage, allcharacters, paginado }) => {
         {pageNumbers &&
           pageNumbers.map((number) => {
             return (
-              <div>
+              <div key={number}>
                 <li className="number" key={number}>
                   <button
                     className="css-button-rounded--blue"

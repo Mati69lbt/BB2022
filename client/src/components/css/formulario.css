@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
-.body {
+/* .body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,8 +18,21 @@
       #e5e5f7 1.4000000000000001px
     );
   background-size: 28px 28px;
+} */
+.body {
+  background-image: url("../css/madera.jpg");
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 100vh;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
 .form {
   background-color: #ffff;
   font-family: "Roboto", sans-serif;
@@ -32,9 +45,9 @@
   text-align: left;
 }
 .form_container {
-  margin-top: 1em;
+  margin-top: 0.5em;
   display: grid;
-  gap: 2.5em;
+  gap: 1.5em;
 }
 
 .form_group {
@@ -46,7 +59,7 @@
   background: none;
   color: #000000;
   font-size: 1rem;
-  padding: 0.6em 0.3em;
+  padding: 0.4em 0.3em;
   border: none;
   outline: none;
   border-bottom: 1px solid #0000007e;
@@ -82,6 +95,7 @@
   padding: 0.8em 0;
   border: none;
   border-radius: 0.5em;
+  margin-left: 5px;
 }
 .form_line {
   position: absolute;

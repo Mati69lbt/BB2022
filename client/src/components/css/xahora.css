@@ -33,8 +33,12 @@
 }
 
 .fondo {
-  min-height: 96vh;
+  min-height: 100vh;
   background-image: url("../css/fondoLanding.jpg");
   background-position-x: center;
   background-position-y: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -10,7 +10,6 @@ const ale = (datos) => {
     return null;
   }
   let indicador = Math.floor(Math.random() * datos.length);
-  console.log(datos[indicador]);
   return datos[indicador];
 };
 

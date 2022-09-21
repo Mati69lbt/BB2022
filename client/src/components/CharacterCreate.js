@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { getOccupation, postCharacters } from "../action";
@@ -94,9 +94,6 @@ const CharacterCreate = () => {
 
   return (
     <body className="body">
-      <Link to="/home">
-        <button>Back</button>
-      </Link>
       <form onSubmit={(e) => handleSubmit(e)} className="form">
         <div className="form_container">
           <div className="form_group">
@@ -164,7 +161,7 @@ const CharacterCreate = () => {
               name="portrayed"
               onChange={(e) => handleChange(e)}
             />
-            <label className="form_label" for="inter">
+            <label className="form_label" htmlFor="inter">
               Interpreted by{" "}
             </label>
             <span className="form_line"></span>
@@ -182,7 +179,7 @@ const CharacterCreate = () => {
               name="quotes"
               onChange={(e) => handleChange(e)}
             />
-            <label className="form_label" for="inter">
+            <label className="form_label" htmlFor="inter">
               Quotes{" "}
             </label>
             <span className="form_line"></span>
@@ -199,7 +196,7 @@ const CharacterCreate = () => {
               name="img"
               onChange={(e) => handleChange(e)}
             />
-            <label className="form_label" for="img">
+            <label className="form_label" htmlFor="img">
               Picture{" "}
             </label>
             <span className="form_line"></span>
@@ -252,7 +249,7 @@ const CharacterCreate = () => {
               Presumed Dead
             </label>
 
-            <label for="sta">Status </label>
+            <label htmlFor="sta">Status </label>
           </div>
         </div>
 
@@ -270,6 +267,18 @@ const CharacterCreate = () => {
 
         <button type="submit" className="submit">
           Create Character
+        </button>
+        <button className="submit" style={{ marginLeft: "30px" }}>
+          <Link
+            to="/home"
+            style={{
+              textDecoration: "none",
+              color: "white",
+              padding: "8px",
+            }}
+          >
+            Back
+          </Link>
         </button>
       </form>
 

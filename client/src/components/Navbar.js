@@ -22,7 +22,12 @@ const Navbar = ({ handleClick, setCurrentPage, setOrder }) => {
   }
   return (
     <div className="navbar">
-      <Link to="/character"> Create Character</Link>
+      <Link to="/character">
+        <button style={{ fontSize: "25px", borderRadius: "10px" }}>
+          {" "}
+          Create Character
+        </button>
+      </Link>
 
       <h1>Who has not seen this series?</h1>
       <div>

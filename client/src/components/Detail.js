@@ -11,8 +11,6 @@ const Detail = (props) => {
   const { id } = props.match.params;
   const [quote, setQuote] = useState("");
   const [death, setDeath] = useState("");
-  console.log(quote);
-  console.log(death);
 
   var aleatorio = Math.floor(Math.random() * 57);
 
@@ -29,11 +27,8 @@ const Detail = (props) => {
       return null;
     }
     let indicador = Math.floor(Math.random() * datos.length);
-    console.log(datos[indicador]);
     return datos[indicador];
   };
-
-  var b = aleQ(a);
 
   function handleChange() {
     setQuote(aleQ(a));
@@ -54,7 +49,6 @@ const Detail = (props) => {
     console.log(datos[indicador]);
     return datos[indicador];
   };
-  var x = aleD(z);
 
   function handleChangeDeath() {
     setDeath(aleD(z));
@@ -75,19 +69,19 @@ const Detail = (props) => {
             <div className="but">
               {parseInt(id) === 1 ? null : (
                 <Link to={"/details/" + (parseInt(id) - 1)}>
-                  <button>Prev</button>
+                  <button className="myButton">Prev</button>
                 </Link>
               )}
               <Link to="/home">
-                <button>Back</button>
+                <button className="myButton">Back</button>
               </Link>
               {parseInt(id) === 116 ? null : (
                 <Link to={"/details/" + (parseInt(id) + 1)}>
-                  <button>Next</button>
+                  <button className="myButton">Next</button>
                 </Link>
               )}
               <Link to={"/details/" + aleatorio}>
-                <button>Ramdom</button>
+                <button className="myButton">Ramdom</button>
               </Link>
             </div>
             <h1>Hello! I am {myCharacter[0].name}!!!</h1>
@@ -139,8 +133,11 @@ const Detail = (props) => {
                     </li>
                   ))} */}
                 </h2>
-                <h4>{death}</h4>
-                <button onClick={() => handleChangeDeath()}>
+                <h2>{death}</h2>
+                <button
+                  onClick={() => handleChangeDeath()}
+                  className="myButton"
+                >
                   Another one?
                 </button>
               </div>
@@ -158,8 +155,10 @@ const Detail = (props) => {
                     </li>
                   ))} */}
                 </h2>
-                <h3>{quote}</h3>
-                <button onClick={() => handleChange()}>New Quote</button>
+                <h2>"...{quote}..."</h2>
+                <button onClick={() => handleChange()} className="myButton">
+                  New Quote
+                </button>
               </div>
             ) : (
               <h2>I did not say anything</h2>

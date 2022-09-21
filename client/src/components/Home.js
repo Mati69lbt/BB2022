@@ -53,7 +53,7 @@ export default function Home() {
         ) : (
           currrentCharacters?.map((el) => {
             return (
-              <div className="tarjeta">
+              <div className="tarjeta" key={el.id}>
                 <Link to={"/details/" + el.id}>
                   <Card
                     name={el.name}

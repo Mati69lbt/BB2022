@@ -11,4 +11,6 @@ import j from "../assets/j.png";
 import k from "../assets/a.jpg";
 import l from "../assets/b.jpg";
 
-export default [a, b, c, d, e, f, g, h, i, j, k, l];
+const imagenes = [a, b, c, d, e, f, g, h, i, j, k, l];
+
+export default imagenes;
