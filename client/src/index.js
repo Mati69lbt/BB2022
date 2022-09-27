@@ -11,7 +11,7 @@ import { store } from "./store";
 import { BrowserRouter } from "react-router-dom";
 dotenv.config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL = "https://breakingbadfront-production.up.railway.app";
 
 ReactDOM.render(
   <Provider store={store}>

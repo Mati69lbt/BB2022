@@ -4,6 +4,7 @@ export function getCharacters() {
   return async function (dispatch) {
     // var json = await axios.get("http://localhost:3001/characters");
     var json = await axios.get("/characters");
+    console.log(json.data);
     return dispatch({
       type: "GET_CHARACTERS",
       payload: json.data,
@@ -22,7 +23,7 @@ export function getOccupation() {
 }
 export function postCharacters(payload) {
   return async function (dispatch) {
-    var json = await axios.post("http://localhost:3001/character", payload);
+    var json = await axios.post("/character", payload);
     // var json = await axios.post("/character", payload);
     return json;
   };
