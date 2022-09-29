@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Home from "./components/home";
 import CharacterCreate from "./components/CharacterCreate";
 import LandingPage from "./components/LandingPage.js";
 import Detail from "./components/Detail";
+import Home from "./components/Home";
 
 function App() {
   return (
