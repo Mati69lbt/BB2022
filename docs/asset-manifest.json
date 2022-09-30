@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.51fc967e.chunk.css",
-    "main.js": "/static/js/main.f7168544.chunk.js",
-    "main.js.map": "/static/js/main.f7168544.chunk.js.map",
+    "main.css": "./static/css/main.51fc967e.chunk.css",
+    "main.js": "./static/js/main.f7168544.chunk.js",
+    "main.js.map": "./static/js/main.f7168544.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.adaeab0a.js",
     "runtime-main.js.map": "/static/js/runtime-main.adaeab0a.js.map",
-    "static/js/2.6cbaf3c8.chunk.js": "/static/js/2.6cbaf3c8.chunk.js",
-    "static/js/2.6cbaf3c8.chunk.js.map": "/static/js/2.6cbaf3c8.chunk.js.map",
-    "static/js/3.93b4823a.chunk.js": "/static/js/3.93b4823a.chunk.js",
-    "static/js/3.93b4823a.chunk.js.map": "/static/js/3.93b4823a.chunk.js.map",
+    "static/js/2.6cbaf3c8.chunk.js": "./static/js/2.6cbaf3c8.chunk.js",
+    "static/js/2.6cbaf3c8.chunk.js.map": "./static/js/2.6cbaf3c8.chunk.js.map",
+    "static/js/3.93b4823a.chunk.js": "./static/js/3.93b4823a.chunk.js",
+    "static/js/3.93b4823a.chunk.js.map": "./static/js/3.93b4823a.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.51fc967e.chunk.css.map": "/static/css/main.51fc967e.chunk.css.map",
-    "static/js/2.6cbaf3c8.chunk.js.LICENSE.txt": "/static/js/2.6cbaf3c8.chunk.js.LICENSE.txt",
+    "static/css/main.51fc967e.chunk.css.map": "./static/css/main.51fc967e.chunk.css.map",
+    "static/js/2.6cbaf3c8.chunk.js.LICENSE.txt": "./static/js/2.6cbaf3c8.chunk.js.LICENSE.txt",
     "static/media/a.09671a9a.jpg": "/static/media/a.09671a9a.jpg",
     "static/media/b.34372552.jpg": "/static/media/b.34372552.jpg",
     "static/media/c.adc3f8c1.jpg": "/static/media/c.adc3f8c1.jpg",
@@ -23,7 +23,7 @@
     "static/media/h.d25d1289.jpg": "/static/media/h.d25d1289.jpg",
     "static/media/i.0c14fac3.jpg": "/static/media/i.0c14fac3.jpg",
     "static/media/j.a7e94d03.png": "/static/media/j.a7e94d03.png",
-    "static/media/home.css": "/static/media/madera.8142365d.jpg"
+    "static/media/home.css": "./static/media/madera.8142365d.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.adaeab0a.js",
