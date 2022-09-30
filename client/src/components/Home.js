@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getCharacters } from "../action";
 import Card from "./Card";
 import Navbar from "./Navbar";
-import Paginado from "./paginado";
+import Paginado from "./Paginado";
 import "./css/home.css";
 import Loading from "./Loading";
 
